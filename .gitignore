@@ -3,6 +3,8 @@
 
 #agrego el ignore para las .png:
 *.png
+# evito que git agrega la carpeta de imagenes al repositorio remoto
+imgs/
 ### Linux ###
 *~
 
