@@ -9,3 +9,14 @@ python3 main.py
 cd charts 
 python3 main.py
 ```
+
+# App Project
+
+```sh
+git clone 
+cd app 
+python3 -venv env
+source env/bin/activate
+python3 main.py
+```
+
