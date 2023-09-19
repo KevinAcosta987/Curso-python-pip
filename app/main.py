@@ -1,7 +1,7 @@
 import utilis
 import charts
 import read_csv
-
+import pandas as pd
 '''
 def run():
   data = read_csv.read_csv('./app/data.csv')
@@ -30,13 +30,22 @@ def Grafico_torta():
   
 #Como se hizo en platzi:
 def run():
+  # a mano, sin pandas:
+  '''
   data = read_csv.read_csv('data.csv')
   data = list(filter(lambda item : item['Continent'] == 'South America',data))
 
   countries = list(map(lambda x: x['Country/Territory'], data))
   percentages = list(map(lambda x: x['World Population Percentage'], data))
+  '''
+  # con pandas:
+  df = pd.read_csv('data.csv')
+  df = df[df['Continent'] == 'South America']
+  countries = df['Country/Territory'].values
+  percentages = df['World Population Percentage'].values
   charts.generate_pie_chart(countries, percentages)
 
+  data = read_csv.read_csv('data.csv')
   country = input('Type country => ')
   result = utilis.population_by_countri(data,country)
   print(result)
